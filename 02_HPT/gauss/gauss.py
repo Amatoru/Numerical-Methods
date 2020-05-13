@@ -1,15 +1,16 @@
 def pprint(matrix):
+    ''' In ma trận bổ sung '''
     m = len(matrix)
     n = len(matrix[0])
 
     print('[', end = '\t')
     for i in range(m-1):
         for j in range(n-1):
-            print('{}'.format(matrix[i][j]), end='\t')
-        print('| {}'.format(matrix[i][n-1]), end='\n\t')
+            print('{:.2f}'.format(matrix[i][j]), end='\t')
+        print('| {:.2f}'.format(matrix[i][n-1]), end='\n\t')
     for j in range(n-1):
-        print('{}'.format(matrix[m-1][j]), end='\t')
-    print('| {}\t]'.format(matrix[m-1][n-1]))
+        print('{:.2f}'.format(matrix[m-1][j]), end='\t')
+    print('| {:.2f}\t]'.format(matrix[m-1][n-1]))
 
 
 def gauss(matrix):
@@ -49,7 +50,7 @@ def gauss(matrix):
         j += 1
 
     # Khử các vị trí trên
-    for j in list(reversed(ind)):
+    for j in reversed(ind):
         i = ind.index(j)
         for k in range(i-1, -1, -1):
             c = matrix[k][j] / matrix[i][j]
