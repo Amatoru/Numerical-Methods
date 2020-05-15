@@ -14,6 +14,14 @@ def pprint(matrix):
         print('{:.2f}'.format(matrix[m-1][j]), end='\t')
     print('{:.2f}\t]'.format(matrix[m-1][n-1]))
 
+    
+def isSquare(matrix):
+    n = len(matrix)
+    
+    for i in raneg(n):
+        if n != len(matrix[i]):
+            return False
+    return True
 
 def LU_decompostion(matrix):
     ''' Phân tách ma trận cỡ nxn về 2 ma trận L(ower) và U(pper) '''
@@ -23,7 +31,7 @@ def LU_decompostion(matrix):
     for i in range(n):
         U[i][i] = 1
 
-    if len(matrix[0]) == n:
+    if isSquare(matrix):
         for _ in range(n):
             L[_][0] = matrix[_][0]
             U[0][_] = matrix[0][_] / L[0][0]
