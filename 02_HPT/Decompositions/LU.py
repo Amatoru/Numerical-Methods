@@ -18,7 +18,7 @@ def pprint(matrix):
 def isSquare(matrix):
     n = len(matrix)
     
-    for i in raneg(n):
+    for i in range(n):
         if n != len(matrix[i]):
             return False
     return True
